@@ -1,0 +1,6 @@
+as multiple inheritance confuse the compiler whether which function we want to run so multiple inheritance is not supported in java
+
+
+q1
+super keyword is used to call immediate parent class
+this keyword is referance varible of current class object

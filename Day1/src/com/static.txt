@@ -1,0 +1,8 @@
+Static class elements are loaded in the RAM first and we can call directly.
+
+
+public Static int a=5;
+Non static elements are loaded in the harddisk and stored in the form of bytecode as a .class file and can be loaded into RAM on runtime.
+
+
+ int b=5;

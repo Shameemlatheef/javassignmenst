@@ -1,0 +1,15 @@
+String is immutable
+String is stored in the string pool and another string created as the content is same directed to the same string poll object
+ String builder is mutable and awe can concanate with another and is String crwation and is not same as the pool Stding
+
+
+
+ String s="hello";
+ String S1="hello"
+ String s3=new String("hello");
+ s and s1 is equal
+ s and s3 is not equal
+ s.concate("all");
+ system.out.pritln(s);////hello
+ s3.concate("all");
+ system.out.println(s3);///output hello all
