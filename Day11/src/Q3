@@ -1,0 +1,12 @@
+differnece btw abstract and interface
+
+abstract class can have both abstract and non abstract methods
+interface can have only abstract and default methods
+
+
+abstract class doesnt support multiple inheritance
+interface supports multiple inheritance
+
+
+abstract can have final and non final ,static and non static variable
+interface can hav static and final varibales
