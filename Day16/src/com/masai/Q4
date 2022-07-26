@@ -1,0 +1,7 @@
+checked exception
+exception rather than runtime exceptions are called checked exceptions;
+these are checked on runtime
+
+
+unchecked exceptions
+exceptions runtime exceptions and aits child classes are called unchecked exceptions
