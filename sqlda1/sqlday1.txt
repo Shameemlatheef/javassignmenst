@@ -1,0 +1,89 @@
+mysql> create database citytab;
+Query OK, 1 row affected (0.36 sec)
+
+mysql> use citytab
+Database changed
+mysql> create table citytab(id int,name varchar(17),countrycode varchar(3),district varchar(20),population int);
+Query OK, 0 rows affected (1.29 sec)
+
+mysql> select * from citytab;
+Empty set (0.10 sec)
+
+mysql> desc citytab;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int         | YES  |     | NULL    |       |
+| name        | varchar(17) | YES  |     | NULL    |       |
+| countrycode | varchar(3)  | YES  |     | NULL    |       |
+| district    | varchar(20) | YES  |     | NULL    |       |
+| population  | int         | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.11 sec)
+
+mysql> insert into citytab values(3868,Scottdale,USA,Arizona,202705);
+ERROR 1054 (42S22): Unknown column 'Scottdale' in 'field list'
+mysql> insert into citytab values(3878,'Scottsdale','USA','Arizona'.202705);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.202705)' at line 1
+mysql> insert into citytab values(3878,'Scottdale','USA','Arizona',202805);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from citytab;
++------+-----------+-------------+----------+------------+
+| id   | name      | countrycode | district | population |
++------+-----------+-------------+----------+------------+
+| 3878 | Scottdale | USA         | Arizona  |     202805 |
++------+-----------+-------------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into citytab values(3965,'Corona','USA','California',90000);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into citytab values(3973,'Concord','USA','CAlifornia',121780);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into citytab values(3977,'Cedar Rapid','USA','lowa',120758);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into citytab values(3982,'coral springs','USA','florida',87456);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from citytab;
++------+---------------+-------------+------------+------------+
+| id   | name          | countrycode | district   | population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scottdale     | USA         | Arizona    |     202805 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | CAlifornia |     121780 |
+| 3977 | Cedar Rapid   | USA         | lowa       |     120758 |
+| 3982 | coral springs | USA         | florida    |      87456 |
++------+---------------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select population from citytab AND add;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND add' at line 1
+mysql> select population from citytab;
++------------+
+| population |
++------------+
+|     202805 |
+|      90000 |
+|     121780 |
+|     120758 |
+|      87456 |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select SUM from population;
+ERROR 1146 (42S02): Table 'citytab.population' doesn't exist
+mysql> select SUM from citytab from population;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from population' at line 1
+mysql> select SUM from(population) from citytab;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from citytab' at line 1
+mysql> SELECT SUM(population) FROM citytab ;
++-----------------+
+| SUM(population) |
++-----------------+
+|          622799 |
++-----------------+
+1 row in set (0.06 sec)
