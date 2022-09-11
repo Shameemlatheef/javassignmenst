@@ -1,0 +1,17 @@
+Checked Exception 
+Exceptions in Which compiler hAndles before complie time is called Checked Exceptions
+
+
+ClassNotfound Exception
+IoException
+SQl Exception
+FilenotFounException
+
+
+Those exception classes for which compiler will not force to handle (it ignores at compile time) is knwon as unchecked exception / runtime exceptions
+
+ex:
+
+NullPointerException
+ArithmaticException
+etc.
