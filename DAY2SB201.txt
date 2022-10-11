@@ -1,0 +1,142 @@
+DAY 2 SB201
+
+
+
+
+Q1-> Explain Layared Architecture in Business application
+
+
+
+Hibernate is an ORM framework with a layered architecture that helps the user to operate without having to know
+the underlying APIs. It also makes use of the database and configuration data to provide persistence services to
+the application.
+There are basically 3 layers in this architecture:-
+Application Layer
+Hibernate Core Layer
+Database Layer
+
+
+
+
+
+
+Q2.limitation of JDBC based persistence logic over JPA
+
+.jdbc can't store the java objs into the table directly,becoz sql queires does not allows the java objs as input, here we need to convert obj data into the simple(atmoic) value to store them in a DB.
+
+
+
+2.jdbc code is the DB dependent code becoz it uses  DB s/w dependent queries. so our jdbc based persistence logic is not 100% portable across various DB s/w.
+
+
+3.jdbc code having boiler plate code problem (writing the same code except sql queries in multiple classes of our application again and again)..
+
+4.jdbc code throws lots of checked exceptions, programmer need to handle them.
+
+
+5.After the select operation, we get the ResultSet object.this RS obj we can not transfer from one layer to another layer and to get the data from the ResultSet we need to now the structure of the ResultSet.
+
+6.there is no any caching and transaction management support is available in jdbc.
+
+etc ...
+
+
+
+Q3. Differentiate between Hibernate and JPA
+
+Hibernate is one of the most popular Java ORM frameworks in use today. Its first
+release was almost twenty years ago, and still has excellent community support and
+regular releases. Additionally, Hibernate is a standard implementation of the JPA
+specification, with a few additional features that are specific to Hibernate.
+
+
+
+Q4 Explain the properties of JPA(Java Persistence API)
+
+
+
+Entity Properties:These are the properties of an entity that an object must have: -
+Persistability — An object is called persistent if it is stored in the database and can be accessed anytime.
+Persistent Identity — In Java, each entity is unique and represents an object identity. Similarly, when the
+object identity is stored in a database then it is represented as persistence identity. This object identity is
+equivalent to the primary key in the database.
+Transactionality — Entity can perform various operations such as create, delete, update. Each operation
+makes some changes in the database. It ensures that whatever changes made in the database either
+succeed or fail atomically.
+Granuality — Entities should not be primitives, primitive wrappers or built-in objects with single dimensional
+state.
+Entity Metadata:Each entity is associated with some metadata that represents the information of it. Instead of a
+database, this metadata is exist either inside or outside the class. This metadata can be in following forms: -
+Annotation — In Java, annotations are the form of tags that represents metadata. This metadata persists
+inside the class.
+XML — In this form, metadata persist outside the class in XML file.
+
+
+
+
+
+Q5. Why to use ORM and What are the benefits of ORM?
+
+Now the question arises that if we can use directly the queries then why to include the ORM frameworks in
+between.
+So, first of all you get to write in the language you are already using. It is sometime tough to write SQL queries
+directly as they are complicated in some cases. So, to maintain the fluency we use ORM, so that we can write in
+the language we know.
+Second, it hides the SQL or any other database query away from your application logic.
+Third, for heavy database usage like creating 10+ tables and using many queries in them, then it is good to use
+ORM as it reduce the code and give better understanding of the code to you and as well as to your team mates
+and it makes your application faster and easier to maintain.
+The java persistence API is a specification in Java. It is used to persist data between Java object and relational
+database. It acts as a bridge between Java object and database.
+Entity An entity is a group of states associated together in a single unit. On adding behavior, an entity behaves
+like an object and becomes a major constituent of the object-oriented paradigm. So, an entity is an applicationdefined object in Java Persistence Library.
+Entity Properties:These are the properties of an entity that an object must have: -
+Persistability — An object is called persistent if it is stored in the database and can be accessed anytime.
+Persistent Identity — In Java, each entity is unique and represents an object identity. Similarly, when the
+object identity is stored in a database then it is represented as persistence identity. This object identity is
+equivalent to the primary key in the database.
+Transactionality — Entity can perform various operations such as create, delete, update. Each operation
+makes some changes in the database. It ensures that whatever changes made in the database either
+succeed or fail atomically.
+Granuality — Entities should not be primitives, primitive wrappers or built-in objects with single dimensional
+state.
+
+
+
+
+
+Q6 what is Core Components of Hibernate explain
+
+
+
+1. Configuration:
+org.hibernate.cfg package contains the Configuration class.
+Configuration cfg = new Configuration() used to activate the Framework.
+It reads both cfg file and mapping files cfg.configure();
+Configuration object created once, at the time of initialization.
+1. SessionFactory:
+org.hibernate.sessionFactory package contains the SessionFactory Interface.
+It is immutable and thread-safe in nature.
+SessionFactory factory = cfg.buildSessionFactory() used while creation of SessionFactory object
+From cfg object it takes the JDBC information and create a JDBC Connection.
+1. Session:
+org.hibernate.session package contains the Session interface
+Session object created based upon SessionFactory object i.e. factory.
+It is a lightweight object and not thread-safe.
+Session object used to execute CRUD operations.
+Session session = factory.buildSession() used while the creation of Session object
+1. Transaction:
+org.hibernate.transaction package contains the Transaction interface
+Transaction object used whenever we perform any operation and based upon that operation there is some
+change in the database.
+It is a short-lived single-threaded object.
+Transaction tx = session.beginTransaction();tx.commit(); used while creation of Transaction object.
+1. Query:
+org.hibernate.query package contains the Query interface.
+The session objects are used to create query objects.
+Query objects use Hibernate Query Language (HQL) to get data from the database.
+Query query = session.createQuery() used while initialisation of Query object.
+1. Criteria:
+org.hibernate.criteria package contains the Criteria interface.
+The session objects are used to create Criteria Objects.
+Criteria criteria = session.createCriteria() used while initialisation of Criteria object.
