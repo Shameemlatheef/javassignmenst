@@ -1,0 +1,53 @@
+--J2EE specification provides lots of api (predefined classes and interfaces ) to use 
+those services so that we just need to focus on main business logic.
+
+JAAS api (Java Authentication and Autherization api) / Spring security
+Servlet/JSP api ----> web enabled (webapplication).
+JTA api (Java Transaction api)
+REST api (to generate webservices) 
+JNDI api 
+etc.
+
+
+
+1. Java based webserver is the small part/ subset of the ApplicationServer.
+
+--AS contains both EJB container and ServletContainer s/w where as Webserver s/w contains only ServletContainer s/w, it does not contains EJB-container.
+
+2.AS can be communicated with any kind of protocol ex: http, smtp, ftp, etc, whereas WS can be communicated only using Http protocol.
+
+3. AS is a heavy weight server where as Webserver is a lightweight server.
+
+
+
+
+Diff bt Webapplication and Enterprise Application:
+========================================
+
+--WebApplication is a small part of the Enterprise application.
+
+
+--Container is a special type of s/w which provides runtime support (execution environment
+) to our components (i.e creating our classes objects, calling their method, etc.)
+
+
+Note: After spring, with the help of Webserver also we can develop Enterprise application very easily.
+
+
+
+
+
+
+--spring is a application f/w software to develop EA.
+
+--s/w communities treats spring as a framework of frameworks, because it gives 
+the support of varaious other f/w software also. like hibernate, struts, JSF,etc
+
+--spring is an open source, light weight application f/w that can be used in all the layers 
+of Java based Enterprise application development.
+
+--with the Spring f/w we can develop J2SE related or J2EE related application as well.
+
+
+----in early days of java based business application development, programmer used
+multiple java bean classes (normal java classes) to build the business logic layer/service layer.
